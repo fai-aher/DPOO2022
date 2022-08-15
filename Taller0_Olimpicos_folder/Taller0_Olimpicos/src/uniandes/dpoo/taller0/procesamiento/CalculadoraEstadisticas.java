@@ -62,10 +62,41 @@ public class CalculadoraEstadisticas
 		this.paises = new ArrayList<Pais>(paises.values());
 		this.eventos = eventos;
 	}
-
+	
 	// ************************************************************************
 	// Métodos
-	// ************************************************************************
+	// ************************************************************************	
+	
+	//Edición para el taller 1 del curso de DPOO
+	
+	/**
+	 * Encuentra el nombre del país al que pertenece cierto atleta dado por parámetro
+	 * por el usuario.
+	 * 
+	 * @param nombreAtleta El nombre del atleta, para quien se va a determinar el país
+	 * 		  que representa.
+	 * @return Un string correspondiente al nombre del país que representa dicho atleta.
+	 */
+	
+	public String paisQueRepresenta(String nombreAtleta)
+	{
+		String resultado = null;
+		Atleta elAtleta = buscarAtleta(nombreAtleta);
+		
+		if (elAtleta != null)
+		{
+			Pais nombrePais = elAtleta.darPais();
+			String darNombrePais = nombrePais.darNombre();
+			
+			resultado = darNombrePais;
+		}
+		else {
+			System.out.println("El nombre del atleta no se encuentra en la base de datos, intenta con otro.");
+		}
+		
+		return resultado;
+	}
+	
 
 	/**
 	 * Calcula cuáles fueron los atletas que participaron en cada evento para el año
